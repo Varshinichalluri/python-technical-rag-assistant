@@ -11,7 +11,18 @@ The project combines document retrieval, semantic search, embeddings, vector dat
 
 
 \---
+## 🏗️ System Architecture
 
+The application follows a Retrieval-Augmented Generation (RAG) architecture to provide grounded answers from the Python 3.11 technical documentation.
+
+![System Architecture](docs/architecture.png)
+
+### Architecture Flow
+
+1. **Document Ingestion** — Python documentation PDFs are loaded using PyPDFLoader and divided into smaller chunks using RecursiveCharacterTextSplitter.
+2. **Embeddings & Vector Store** — Text chunks are converted into embeddings using HuggingFace `all-MiniLM-L6-v2` and stored in ChromaDB.
+3. **Retrieval & Generation** — Relevant documents are retrieved and passed through LangChain to the Groq LLM for answer generation.
+4. **User Interface** — Users interact with the RAG assistant through the Streamlit web application.
 
 
 \## 📌 Project Overview
